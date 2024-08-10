@@ -1,4 +1,4 @@
-export default function returnHowManyArguments (...theArgs) {
-  let length = theArgs.length;
-  return length;
+export default function returnHowManyArguments(...theArgs) {
+  const len = theArgs.length;
+  return len;
 }
