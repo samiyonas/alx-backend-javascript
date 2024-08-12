@@ -9,7 +9,7 @@ export default function getFullResponseFromAPI(success) {
       };
       resolve(obj);
     } else {
-      const obj = {error: 'The fake API is not working currently'};
+      const obj = { error: 'The fake API is not working currently' };
       reject(obj);
     }
   });
