@@ -2,42 +2,50 @@ import Car from './10-car';
 
 export default class EVCar extends Car {
   constructor(brand, motor, color, range) {
-    super(brand, motor, color);
-    this.range = range;
+    super();
+    this._brand = brand;
+    this._motor = motor;
+    this._color = color;
+    this._range = range;
   }
 
-  get range() {
-    return this._range;
+  set brand(value) {
+    this._brand = value;
   }
 
-  set range(value) {
-    this._range = value;
+  set motor(value) {
+    this._motor = value;
   }
 
-  cloneCar() {
-    const Species = super.constructor[Symbol.species];
-
-    return new Species();
-  }
-}import Car from './10-car';
-
-export default class EVCar extends Car {
-  constructor(brand, motor, color, range) {
-    super(brand, motor, color);
-    this.range = range;
-  }
-
-  get range() {
-    return this._range;
+  set color(value) {
+    this._color = value;
   }
 
   set range(value) {
     this._range = value;
   }
 
-  cloneCar() {
-    const Species = super.constructor[Symbol.species];
+  get brand() {
+    return this._brand;
+  }
 
-    return new Species();
+  get motor() {
+    return this._motor;
+  }
+
+  get color() {
+    return this._color;
+  }
+
+  get range() {
+    return this._range;
+  }
+
+  static get [Symbol.species]() {
+    return Car;
+  }
+
+  cloneCar() {
+    return new this.constructor[Symbol.species]();
   }
 }
